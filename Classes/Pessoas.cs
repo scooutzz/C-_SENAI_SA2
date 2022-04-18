@@ -7,7 +7,7 @@ namespace Cadastro_Pessoa_SA2___ER2.Classes
         //atributos (propriedades { prop -> snippet } ) 
         public string ?nome { get; set; }
 
-        public string ?endereco { get; set; }
+        public Endereco ?endereco { get; set; }
         
         public float ?rendimento { get; set; }
         
