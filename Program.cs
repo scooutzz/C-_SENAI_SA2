@@ -3,8 +3,9 @@
 
 using Cadastro_Pessoa_SA2___ER2.Classes;
 
+PessoaFisica metodoPf = new PessoaFisica(); //usado para chamar metodos
 
-PessoaFisica novaPf = new PessoaFisica();
+PessoaFisica novaPf = new PessoaFisica(); //usado somente para receber valores
 Endereco novoEnd = new Endereco();
 
 novaPf.nome = "Fabio";
@@ -19,11 +20,8 @@ novoEnd.endComercial = true;
 
 novaPf.endereco = novoEnd;
 
-// Console.WriteLine($"Nome: {novaPf.nome}");
-// Console.WriteLine($"Endereco: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}");
-
 Console.WriteLine(@$"
 Nome: {novaPf.nome}
 Endereco: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}
+Maio de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
 ");
-
