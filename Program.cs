@@ -3,6 +3,9 @@
 
 using Cadastro_Pessoa_SA2___ER2.Classes;
 
+
+
+
 PessoaFisica metodoPf = new PessoaFisica(); //usado para chamar metodos
 
 PessoaFisica novaPf = new PessoaFisica(); //usado somente para receber valores
@@ -25,3 +28,9 @@ Nome: {novaPf.nome}
 Endereco: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}
 Maio de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
 ");
+
+
+
+PessoaJuridica metodoPj = new PessoaJuridica();
+
+Console.WriteLine($"{metodoPj.ValidarCnpj("00000000000100")}");
