@@ -33,4 +33,24 @@ Maio de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
 
 PessoaJuridica metodoPj = new PessoaJuridica();
 
-Console.WriteLine($"{metodoPj.ValidarCnpj("00000000000100")}");
+PessoaJuridica novaPj = new PessoaJuridica();
+Endereco novoEndPj = new Endereco();
+
+novaPj.nome = "Nome Pj";
+novaPj.cnpj = "00.000.000/0001-00";
+novaPj.razaoSocial = "Razão Social Pj";
+novaPj.rendimento = 8000.5f;
+
+novoEndPj.logradouro = "Alameda Barão de Limeira";
+novoEndPj.numero = 539;
+novoEndPj.complemento = "SENAI Informatica";
+novoEndPj.endComercial = true;
+
+novaPj.endereco = novoEndPj;
+
+Console.WriteLine(@$"
+Nome: {novaPj.nome}
+Razão Social: {novaPj.razaoSocial}
+CNPJ: {novaPj.cnpj}
+CNPJ válido: {metodoPj.ValidarCnpj(novaPj.cnpj)}
+");
