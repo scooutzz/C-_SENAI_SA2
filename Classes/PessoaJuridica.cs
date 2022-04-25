@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Cadastro_Pessoa_SA2___ER2.Interfaces;
 
 namespace Cadastro_Pessoa_SA2___ER2.Classes
@@ -16,9 +17,15 @@ namespace Cadastro_Pessoa_SA2___ER2.Classes
             throw new NotImplementedException();
         }
 
+        //XX.XXX.XXX/0001-XX - XXXXXXXX0001XX
         public bool ValidarCnpj(string cnpj)
         {
-            throw new NotImplementedException();
+            if (Regex.IsMatch(cnpj, @"(^(\d{2}.\d{3}.\d{3}/\d{4}-\d{2})|(\d{14})$)"))
+            {
+                return true;
+            }
+
+            return false;
         }
 
 
