@@ -52,7 +52,8 @@ do
             Console.WriteLine(@$"
 Nome: {novaPf.nome}
 Endereco: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}
-Maior de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
+Maior de idade: {(metodoPf.ValidarDataNascimento(novaPf.dataNascimento) ? "Sim" : "Não")}
+Taxa de imposto a ser paga é: {metodoPf.PagarImposto(novaPf.rendimento).ToString("C")}
 ");
 
             Console.WriteLine($"Aperte 'Enter' para continuar");
@@ -83,7 +84,8 @@ Maior de idade: {metodoPf.ValidarDataNascimento(novaPf.dataNascimento)}
 Nome: {novaPj.nome}
 Razão Social: {novaPj.razaoSocial}
 CNPJ: {novaPj.cnpj}
-CNPJ válido: {metodoPj.ValidarCnpj(novaPj.cnpj)}
+CNPJ válido: {(metodoPj.ValidarCnpj(novaPj.cnpj) ? "Sim" : "Não")}
+Taxa de imposto a ser paga é: {metodoPj.PagarImposto(novaPj.rendimento).ToString("C")}
 ");
 
             Console.WriteLine($"Aperte 'Enter' para continuar");
@@ -122,4 +124,5 @@ static void BarraCarregamento(string texto, int tempo)
     }
 
     Console.ResetColor();
+    Console.Clear();
 }
