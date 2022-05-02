@@ -1,6 +1,7 @@
 ﻿using Cadastro_Pessoa_SA2___ER2.Classes;
 
 
+Console.Clear();
 Console.WriteLine(@$"
 =================================================
 |       Bem vindo ao sistema de cadastro de     |
@@ -119,7 +120,22 @@ do
 
                         novaPf.endereco = novoEnd;
 
-                        listaPf.Add(novaPf);
+                        // listaPf.Add(novaPf);
+
+
+                        // StreamWriter sw = new StreamWriter($"{novaPf.nome}.txt");
+                        // sw.Write(novaPf.nome);
+                        // sw.Close();
+
+                        using (StreamWriter sw = new StreamWriter($"CadastrosTxT/{novaPf.nome}.txt"))
+                        {
+                            sw.WriteLine(@$"
+Nome: {novaPf.nome}
+Endereço: {novaPf.endereco.logradouro}, {novaPf.endereco.numero}, {novaPf.endereco.complemento}
+Data de nascimento: {novaPf.dataNascimento}
+Taxa de imposto a ser paga: {metodoPf.PagarImposto(novaPf.rendimento).ToString("C")}
+                            ");
+                        }
 
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -133,30 +149,46 @@ do
 
                         Console.Clear();
 
-                        if (listaPf.Count > 0)
-                        {
+//                         if (listaPf.Count > 0)
+//                         {
 
-                            foreach (PessoaFisica cadaPf in listaPf)
+//                             foreach (PessoaFisica cadaPf in listaPf)
+//                             {
+//                                 Console.Clear();
+//                                 Console.WriteLine(@$"
+// Nome: {cadaPf.nome}
+// Endereco: {cadaPf.endereco.logradouro}, {cadaPf.endereco.numero}
+// Data de nascimento: {cadaPf.dataNascimento}
+// Taxa de imposto a ser paga é: {metodoPf.PagarImposto(cadaPf.rendimento).ToString("C")}
+// ");
+
+//                                 Console.WriteLine($"Aperte 'Enter' para continuar");
+//                                 Console.ReadLine();
+//                             }
+
+//                         }
+//                         else
+//                         {
+//                             Console.Clear();
+//                             Console.WriteLine($"Lista vazia");
+//                             Thread.Sleep(3000);
+//                         }
+
+                            Console.WriteLine($"Insira o nome da Pessoa Física que deseja. (Escreva da maneira que foi cadastrado)");
+                            string txtPf = Console.ReadLine();
+                            
+
+                            using (StreamReader sr = new StreamReader($"CadastrosTxT/{txtPf}.txt"))
                             {
-                                Console.Clear();
-                                Console.WriteLine(@$"
-Nome: {cadaPf.nome}
-Endereco: {cadaPf.endereco.logradouro}, {cadaPf.endereco.numero}
-Data de nascimento: {cadaPf.dataNascimento}
-Taxa de imposto a ser paga é: {metodoPf.PagarImposto(cadaPf.rendimento).ToString("C")}
-");
-
-                                Console.WriteLine($"Aperte 'Enter' para continuar");
-                                Console.ReadLine();
+                                string linha;
+                                while ((linha = sr.ReadLine()) != null)
+                                {
+                                    Console.WriteLine($"{linha}");
+                                }
                             }
 
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            Console.WriteLine($"Lista vazia");
-                            Thread.Sleep(3000);
-                        }
+                            Console.WriteLine($"Aperte 'Enter' para continuar");
+                            Console.ReadLine();
 
 
                         break;
