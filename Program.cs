@@ -319,9 +319,9 @@ Taxa de imposto a ser paga: {metodoPf.PagarImposto(novaPf.rendimento).ToString("
                             {
                                 Console.Clear();
                                 Console.WriteLine(@$"
-Nome: {novaPj.nome}
-Razão Social: {novaPj.razaoSocial}
-CNPJ: {novaPj.cnpj}
+Nome: {cadaItem.nome}
+Razão Social: {cadaItem.razaoSocial}
+CNPJ: {cadaItem.cnpj}
 ");
                                 Console.WriteLine($"Aperte 'Enter' para continuar");
                                 Console.ReadLine();
