@@ -12,7 +12,6 @@ Console.WriteLine(@$"
 BarraCarregamento("Carregando ", 500);
 
 List<PessoaFisica> listaPf = new List<PessoaFisica>();
-List<PessoaJuridica> listaPj = new List<PessoaJuridica>();
 
 string? opcao;
 do
@@ -236,7 +235,7 @@ Taxa de imposto a ser paga: {metodoPf.PagarImposto(novaPf.rendimento).ToString("
                         Endereco novoEndPj = new Endereco();
 
                         Console.Clear();
-                        Console.WriteLine($"DIgite o nome da Pessoa Jurídica");
+                        Console.WriteLine($"Digite o nome da Pessoa Jurídica");
                         novaPj.nome = Console.ReadLine();
 
                         bool cnpjValido;
@@ -264,7 +263,7 @@ Taxa de imposto a ser paga: {metodoPf.PagarImposto(novaPf.rendimento).ToString("
 
                         Console.Clear();
                         Console.WriteLine($"Digite a razão social");
-                        novaPj.razaoSocial = "Razão Social Pj";
+                        novaPj.razaoSocial = Console.ReadLine();
 
                         Console.Clear();
                         Console.WriteLine($"Digite o rendimento");
@@ -297,7 +296,9 @@ Taxa de imposto a ser paga: {metodoPf.PagarImposto(novaPf.rendimento).ToString("
 
                         novaPj.endereco = novoEndPj;
 
-                        listaPj.Add(novaPj);
+                        // listaPj.Add(novaPj);
+                        
+                        metodoPj.Inserir(novaPj);
 
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -308,28 +309,31 @@ Taxa de imposto a ser paga: {metodoPf.PagarImposto(novaPf.rendimento).ToString("
                         break;
 
                     case "2":
-
                         Console.Clear();
+
+                        List<PessoaJuridica> listaPj = metodoPj.Ler();
 
                         if (listaPj.Count > 0)
                         {
-                            foreach (PessoaJuridica cadaPj in listaPj)
+                            foreach (PessoaJuridica cadaItem in listaPj)
                             {
                                 Console.Clear();
                                 Console.WriteLine(@$"
-Nome: {cadaPj.nome}
-Razão Social: {cadaPj.razaoSocial}
-CNPJ: {cadaPj.cnpj}
-Taxa de imposto a ser paga é: {metodoPj.PagarImposto(cadaPj.rendimento).ToString("C")}
+Nome: {novaPj.nome}
+Razão Social: {novaPj.razaoSocial}
+CNPJ: {novaPj.cnpj}
 ");
                                 Console.WriteLine($"Aperte 'Enter' para continuar");
                                 Console.ReadLine();
+                                
                             }
                         }
                         else
                         {
                             Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine($"Lista vazia");
+                            Console.ResetColor();
                             Thread.Sleep(3000);
                         }
 
