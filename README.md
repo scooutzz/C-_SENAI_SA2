@@ -23,7 +23,7 @@ Para poder rodar o projeto é necessário a intação dos seguintes recursos:
   # Clone o repositório
   ❯ git clone https://github.com/scooutzz/C-_SENAI_SA2
 	# Entre no diretório
-  ❯ cd senai-uc12-sa2
+  ❯ cd C-_SENAI_SA2
 	# Execute o projeto
   ❯ dotnet run
 ```
