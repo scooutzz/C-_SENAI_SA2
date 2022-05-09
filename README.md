@@ -21,7 +21,7 @@ Para poder rodar o projeto é necessário a intação dos seguintes recursos:
 # Como rodar o projeto
 ```bash
   # Clone o repositório
-  ❯ git clone https://github.com/HandryoCasali/senai-uc12-sa2.git
+  ❯ git clone https://github.com/scooutzz/C-_SENAI_SA2
 
 	# Entre no diretório
   ❯ cd senai-uc12-sa2
